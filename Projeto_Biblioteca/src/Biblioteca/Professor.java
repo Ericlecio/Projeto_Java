@@ -14,19 +14,11 @@ public class Professor extends Pessoa {
 	}
 
 	//METODOS
-//	@Override
-//	public void emprestarLivro(Livro livro) throws BibliotecaException {
-//		if (livrosEmprestados.size() < 4) {
-//			livrosEmprestados.add(livro);
-//		} else {
-//			throw new BibliotecaException("Você atingiu o limite de livros emprestados.");
-//		}
-//	}
-//
-//	@Override
-//	public void devolverLivro(Livro livro) {
-//		livrosEmprestados.remove(livro);
-//	}
+	@Override
+	public String getTipo() {
+		// TODO Auto-generated method stub
+		return "Professor";
+	}
 
 	//GETS E SETS
 	public int getNumeroRegistro() {

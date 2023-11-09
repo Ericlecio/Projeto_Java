@@ -14,18 +14,10 @@ public class Aluno extends Pessoa {
 	}
 
 	//METODOS
-	//	@Override
-	//	public void emprestarLivro(Livro livro) throws BibliotecaException {
-	//		if (livrosEmprestados.size() < 3) {
-	//			livrosEmprestados.add(livro);
-	//		} else {
-	//			throw new BibliotecaException("Você atingiu o limite de livros emprestados.");
-	//		}
-	//	}
-	//	@Override
-	//	public void devolverLivro(Livro livro) {
-	//		livrosEmprestados.remove(livro);
-	//	}
+	@Override
+	public String getTipo() {
+		return "Aluno";
+	}
 
 	//GETS E SETS
 	public int getNumeroMatricula() {

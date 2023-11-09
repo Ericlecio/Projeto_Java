@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Main {
-	public static void main(String[] args) throws BibliotecaException {
+public class Main1 {
+	public static void main(String[] args) {
 
 		// Criando a biblioteca
 		Biblioteca biblioteca = new Biblioteca();
@@ -52,8 +52,21 @@ public class Main {
 
 
 		//Criação das Pessoas, Professor/Aluno
-		Professor professor = new Professor("Leonardo Lima", 40, "Rua de rico", 1234);
-		Aluno aluno = new Aluno("Ericlecio", 24, "Rua J", 567);
+		Professor professor = new Professor("Leonardo Lima", 42, "Rua de rico", 1234);
+		Aluno aluno = new Aluno("Ericlecio", 21, "Rua J", 567);
+
+		//Criação dos funcionarios
+		Funcionario funcionario1 = new Funcionario("Jose Ricardo", 32, "Rua Vinte", 0011, 1200);
+		Funcionario funcionario2 = new Funcionario("Maria", 21, "Rua São vicente", 0022, 1500);
+		Funcionario funcionario3 = new Funcionario("Larissa", 50, "Rua jose oliveira", 0033, 1000);
+
+		//Criando lista de funcionarios e setando para a biblioteca
+		List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
+		listaFuncionario.add(funcionario1);
+		listaFuncionario.add(funcionario2);
+		listaFuncionario.add(funcionario3);
+		biblioteca.setFuncionario(listaFuncionario);
+
 
 		//Criando uma lista de Pessoas e setando os alunos e professores
 		List<Pessoa> ListaPessoa = new ArrayList<Pessoa>();
@@ -91,11 +104,25 @@ public class Main {
 		multas.add(multa);
 
 
-		System.out.println("Todos os livros da Biblioteca:");
+		System.out.println("\n---------------- Todos os livros da Biblioteca -------------------");
 		for (Livro livro : listalivros) {
 			System.out.println(livro.getTitulo() + ", Autor: " + livro.getAutor() + ", Ano de publicação: " + livro.getAnoPublicacao());
 		}
 
+
+		System.out.println("\n------------------------- Funcionarios ---------------------------");
+		for (Funcionario funcionarios : biblioteca.getFuncionario()) {
+			System.out.println("Nome: " + funcionarios.getNome());
+			System.out.println("Idade: " + funcionarios.getIdade());
+			System.out.println("Endereço: " + funcionarios.getEndereco());
+			System.out.println("Numero Funcionario" + funcionarios.getNumeroFuncionario());
+			System.out.println("Salario: " + funcionarios.getSalario());
+			funcionarios.getTipo();
+			System.out.println("---------------------------------------------------------------");
+		}
+
+
+		System.out.println("--------------------------- Estantes -----------------------------");
 		int somador = 1;
 		for (Estante estantes : listaEstantes) {
 			System.out.println();
@@ -108,9 +135,9 @@ public class Main {
 		}
 
 
-		System.out.println("\nEmpréstimos:");
+		System.out.println("----------------------- Empréstimos -----------------------------");
 		for (Emprestimo emprestimo : ListaEmprestimos) {
-			System.out.println(emprestimo.getPessoa().getClass().getSimpleName());
+			System.out.println(emprestimo.getPessoa().getTipo());
 			System.out.println(emprestimo.getPessoa().getNome());
 			System.out.println("Data de emprestimo: " + emprestimo.getDataEmprestimo());
 			for (ItemEmprestimo item : emprestimo.getItens()) {
@@ -121,7 +148,7 @@ public class Main {
 		}
 
 
-		System.out.println("\nMultas:");
+		System.out.println("------------------------ Multas ----------------------------------");
 		for (Multa multaItem : multas) {
 			System.out.println("Pessoa: " + multaItem.getPessoa().getNome());
 			System.out.println("Livro: " + multaItem.getLivro().getTitulo());
@@ -130,11 +157,12 @@ public class Main {
 		}
 
 
-		System.out.println("\nPessoas Cadastradas:");
+		System.out.println("------------------- Pessoas Cadastradas ---------------------------");
 		for (Pessoa pessoa: ListaPessoa) {
 			System.out.println("Pessoa: " + pessoa.getNome());
 			System.out.println("Idade: " + pessoa.getIdade());
 			System.out.println("Endereço: " + pessoa.getEndereco());
+			System.out.println("Tipo: " + pessoa.getTipo());
 			System.out.println("------------------------------------------------------------------");
 		}
 	}

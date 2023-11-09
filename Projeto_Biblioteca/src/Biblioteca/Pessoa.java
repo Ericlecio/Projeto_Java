@@ -17,8 +17,8 @@ public abstract class Pessoa {
 	}
 
 	//METODOS
-//	abstract void emprestarLivro(Livro livro) throws BibliotecaException;
-//	abstract void devolverLivro(Livro livro);
+	public abstract String getTipo();
+
 
 	//GETS E SETS
 	public String getNome() {
