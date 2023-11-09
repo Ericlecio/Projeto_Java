@@ -4,12 +4,14 @@ import java.util.Date;
 
 public class Multa {
 	private Pessoa pessoa;
+	private Livro livro;
 	private double valor;
 	private Date dataPagamento;
 
-	public Multa(Pessoa pessoa, double valor) {
+	public Multa(Pessoa pessoa, Livro livro, double valor) {
 		this.pessoa = pessoa;
 		this.valor = valor;
+		this.livro = livro;
 	}
 
 	public void pagarMulta() {
@@ -39,6 +41,16 @@ public class Multa {
 	public void setDataPagamento(Date dataPagamento) {
 		this.dataPagamento = dataPagamento;
 	}
-	
-	
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
+
+
+
 }

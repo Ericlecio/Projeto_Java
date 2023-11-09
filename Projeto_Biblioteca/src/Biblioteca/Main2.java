@@ -5,35 +5,57 @@ import java.util.List;
 
 public class Main2 {
 	public static void main(String[] args) {
+		// Criando a biblioteca
+		Biblioteca biblioteca = new Biblioteca();
+
+		// Criando as estantes
+		Estante estante1 = new Estante();
+		Estante estante2 = new Estante();
+
+		// Criando uma lista de estantes e setando as estantes
+		List<Estante> listaEstantes = new ArrayList<Estante>();
+		listaEstantes.add(estante1);
+		listaEstantes.add(estante2);
+
+		// Setando a lista de estantes para a biblioteca
+		biblioteca.setEstante(listaEstantes);
 
 		// Criação do livros
 		Livro livro1 = new Livro("Livro 1", "Autor 1", 2000);
 		Livro livro2 = new Livro("Livro 2", "Autor 2", 2005);
 		Livro livro3 = new Livro("Livro 3", "Autor 3", 2010);
+
 		Livro livro4 = new Livro("Livro 4", "Autor 4", 2010);
 		Livro livro5 = new Livro("Livro 5", "Autor 4", 2010);
 		Livro livro6 = new Livro("Livro 6", "Autor 4", 2010);
+
+		//Setando os livros para as estantes
+		estante1.adicionarLivro(livro1);
+		estante1.adicionarLivro(livro2);
+		estante1.adicionarLivro(livro3);
+
+		estante2.adicionarLivro(livro4);
+		estante2.adicionarLivro(livro5);
+		estante2.adicionarLivro(livro6);
+
+		//Criando uma lista de livros e setando os TODOS os livros. 
+		List<Livro> listalivros = new ArrayList<Livro>();
+		listalivros.add(livro1);
+		listalivros.add(livro2);
+		listalivros.add(livro3);
+		listalivros.add(livro4);
+		listalivros.add(livro5);
+		listalivros.add(livro6);
+
 
 		//Criação das Pessoas, Professor/Aluno
 		Professor professor = new Professor("Leonardo Lima", 40, "Rua de rico", 1234);
 		Aluno aluno = new Aluno("Ericlecio", 24, "Rua J", 567);
 
+		//Criando uma lista de Pessoas e setando os alunos e professores
 		List<Pessoa> ListaPessoa = new ArrayList<Pessoa>();
 		ListaPessoa.add(aluno);
 		ListaPessoa.add(professor);
-
-		// Adicionando os livros a estante de livros.
-		Estante estante = new Estante();
-		estante.adicionarLivro(livro1);
-		estante.adicionarLivro(livro2);
-		estante.adicionarLivro(livro3);
-		estante.adicionarLivro(livro4);
-		estante.adicionarLivro(livro5);
-		estante.adicionarLivro(livro6);
-
-		//Criando lista de livros na estante e setando os livros
-		List<Livro> livrosEstante = new ArrayList<Livro>();
-		livrosEstante.addAll(estante.getLivros());
 
 
 		// Criando ItemReservas 1 e adicionando livro 
@@ -56,19 +78,26 @@ public class Main2 {
 		ListaReservas.add(reserva2);
 
 		// Crie uma multa e setando para a pessoas responsavel
-		Multa multa = new Multa(professor, 10.0);
+		Multa multa = new Multa(professor, livro1, 10.0);
 		List<Multa> multas = new ArrayList<Multa>();
 		multas.add(multa);
 
 
 
-
-
-
-
-		System.out.println("Livros na Estante:");
-		for (Livro livro : livrosEstante) {
+		System.out.println("Todos os livros da biblioteca:");
+		for (Livro livro : listalivros) {
 			System.out.println(livro.getTitulo() + ", Autor: " + livro.getAutor() + ", Ano de publicação: " + livro.getAnoPublicacao());
+		}
+
+		int somador = 1;
+		for (Estante estantes : listaEstantes) {
+			System.out.println();
+			System.out.println("Estante " + somador);
+			for (Livro livro : estantes.getLivros()) {
+				System.out.println(livro.getTitulo() + ", Autor: " + livro.getAutor() + ", Ano de publicação: " + livro.getAnoPublicacao());
+			}
+			System.out.println("Todos os livros da estante " + somador +".\n");
+			somador = somador + 1;
 		}
 
 
@@ -87,6 +116,7 @@ public class Main2 {
 		System.out.println("\nMultas:");
 		for (Multa multaItem : multas) {
 			System.out.println("Pessoa: " + multaItem.getPessoa().getNome());
+			System.out.println("Livro: " + multaItem.getLivro().getTitulo());
 			System.out.println("Valor da Multa: " + multaItem.getValor());
 			System.out.println("------------------------------------------------------------------");
 		}
