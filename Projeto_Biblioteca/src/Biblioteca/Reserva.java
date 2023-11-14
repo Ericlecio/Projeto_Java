@@ -1,18 +1,21 @@
 package Biblioteca;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Reserva {
 	private Pessoa pessoa;
-	private Date dataReserva;
+	private String dataReserva;
 	private List<ItemReserva> itens;
 
 	//CONSTRUTOR
-	public Reserva(Pessoa pessoa) {
+	public Reserva(Pessoa pessoa, String dataReserva ) {
 		this.pessoa = pessoa;
-		this.dataReserva = new Date();
+		this.dataReserva = dataReserva;
+		this.itens = new ArrayList<>();
+	}
+
+	public Reserva() {
 		this.itens = new ArrayList<>();
 	}
 
@@ -30,11 +33,11 @@ public class Reserva {
 		this.pessoa = pessoa;
 	}
 
-	public Date getDataReserva() {
+	public String getDataReserva() {
 		return dataReserva;
 	}
 
-	public void setDataReserva(Date dataReserva) {
+	public void setDataReserva(String dataReserva) {
 		this.dataReserva = dataReserva;
 	}
 

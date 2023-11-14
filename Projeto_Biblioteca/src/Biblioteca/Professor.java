@@ -1,7 +1,6 @@
 package Biblioteca;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Professor extends Pessoa {
 	private int numeroRegistro;
@@ -10,7 +9,7 @@ public class Professor extends Pessoa {
 	public Professor(String nome, int idade, String endereco, int numeroRegistro) {
 		super(nome, idade, endereco);
 		this.numeroRegistro = numeroRegistro;
-		this.livrosEmprestados = new ArrayList<>();
+		this.livrosPegos = new ArrayList<>();
 	}
 
 	//METODOS

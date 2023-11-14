@@ -1,19 +1,24 @@
 package Biblioteca;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Pessoa {
 	protected String nome;
 	protected int idade;
 	protected String endereco;
-	protected List<Livro> livrosEmprestados;
+	protected List<Livro> livrosPegos;
 
 	//CONSTRUTOR
+	public Pessoa() {
+	}
+
 	public Pessoa(String nome, int idade, String endereco) {
 		super();
 		this.nome = nome;
 		this.idade = idade;
 		this.endereco = endereco;
+		this.livrosPegos = new ArrayList<>();
 	}
 
 	//METODOS
@@ -33,12 +38,12 @@ public abstract class Pessoa {
 		return endereco;
 	}
 
-	public List<Livro> getLivrosEmprestados() {
-		return livrosEmprestados;
+	public List<Livro> getLivrosPegos() {
+		return livrosPegos;
 	}
 
-	public void setLivrosEmprestados(List<Livro> livrosEmprestados) {
-		this.livrosEmprestados = livrosEmprestados;
+	public void setLivrosPegos(List<Livro> livrosPegos) {
+		this.livrosPegos = livrosPegos;
 	}
 
 	public void setNome(String nome) {

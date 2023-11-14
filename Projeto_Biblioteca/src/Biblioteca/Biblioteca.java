@@ -17,7 +17,6 @@ public class Biblioteca {
 		this.funcionario = funcionario;
 	}
 
-
 	//GETS E SETS
 	public List<Estante> getEstante() {
 		return estante;
@@ -34,8 +33,5 @@ public class Biblioteca {
 	public void setFuncionario(List<Funcionario> funcionario) {
 		this.funcionario = funcionario;
 	}
-	
-	
-	
 	
 }

@@ -14,15 +14,6 @@ public class Livro {
 		this.disponivel = true;
 	}
 
-	//METODOS
-	public void emprestar() {
-		disponivel = false;
-	}
-
-	public void devolver() {
-		disponivel = true;
-	}
-
 	//GETS E SETS
 	public String getTitulo() {
 		return titulo;
@@ -54,9 +45,5 @@ public class Livro {
 
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
-	}
-
-	public boolean estaDisponivel() {
-		return disponivel;
 	}
 }

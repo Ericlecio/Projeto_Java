@@ -1,25 +1,30 @@
 package Biblioteca;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Emprestimo {
 	private Pessoa pessoa;
-    private Date dataEmprestimo;
-    private List<ItemEmprestimo> itens;
+	private String dataEmprestimo;
+	private List<ItemEmprestimo> itens;
 
-    public Emprestimo(Pessoa pessoa) {
-        this.pessoa = pessoa;
-        this.dataEmprestimo = new Date();
-        this.itens = new ArrayList<>();
-    }
+	//CONSTRUTOR
+	public Emprestimo() {
+		this.itens = new ArrayList<>();
+	}
 
-    public void adicionarItem(ItemEmprestimo item) {
-        itens.add(item);
-    }
+	public Emprestimo(Pessoa pessoa, String dataEmprestimo) {
+		this.pessoa = pessoa;
+		this.dataEmprestimo = dataEmprestimo;
+		this.itens = new ArrayList<>();
+	}
+	
+	//METODOS
+	public void adicionarItem(ItemEmprestimo item) {
+		itens.add(item);
+	}
 
-   
+	//GETS E SETS
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -28,15 +33,13 @@ public class Emprestimo {
 		this.pessoa = pessoa;
 	}
 
-	public Date getDataEmprestimo() {
+	public String getDataEmprestimo() {
 		return dataEmprestimo;
 	}
 
-	public void setDataEmprestimo(Date dataEmprestimo) {
+	public void setDataEmprestimo(String dataEmprestimo) {
 		this.dataEmprestimo = dataEmprestimo;
 	}
-
-	
 
 	public List<ItemEmprestimo> getItens() {
 		return itens;
@@ -45,6 +48,5 @@ public class Emprestimo {
 	public void setItens(List<ItemEmprestimo> itens) {
 		this.itens = itens;
 	}
-    
-    
+
 }

@@ -1,45 +1,31 @@
 package Biblioteca;
 
-import java.util.Date;
-
 public class Multa {
 	private Pessoa pessoa;
 	private Livro livro;
 	private double valor;
-	private Date dataPagamento;
+	private String dataPagamento;
 
-	public Multa(Pessoa pessoa, Livro livro, double valor) {
+	//CONSTRUTOR
+	public Multa() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Multa(Pessoa pessoa, Livro livro, double valor, String dataPagamento) {
+		super();
 		this.pessoa = pessoa;
-		this.valor = valor;
 		this.livro = livro;
+		this.valor = valor;
+		this.dataPagamento = dataPagamento;
 	}
 
-	public void pagarMulta() {
-		dataPagamento = new Date();
-	}
-
+	//GETS E SETS
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
-	}
-
-	public double getValor() {
-		return valor;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-
-	public Date getDataPagamento() {
-		return dataPagamento;
-	}
-
-	public void setDataPagamento(Date dataPagamento) {
-		this.dataPagamento = dataPagamento;
 	}
 
 	public Livro getLivro() {
@@ -50,7 +36,19 @@ public class Multa {
 		this.livro = livro;
 	}
 
+	public double getValor() {
+		return valor;
+	}
 
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
 
+	public String getDataPagamento() {
+		return dataPagamento;
+	}
 
+	public void setDataPagamento(String dataPagamento) {
+		this.dataPagamento = dataPagamento;
+	}	
 }
