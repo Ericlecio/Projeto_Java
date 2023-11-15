@@ -98,11 +98,17 @@ public class Main2 {
 		reserva2.adicionarItem(itemReserva2);
 		reserva2.setDataReserva("10/12/2023");
 
+		ItemReserva itemReserva3 = new ItemReserva(livro3);  
+		Reserva reserva3 = new Reserva();
+		reserva3.setPessoa(funcionario1);
+		reserva3.adicionarItem(itemReserva3);
+		reserva3.setDataReserva("01/01/2024");
 
 		// Criando Lista de Reserva e adicionando as reservas
 		List<Reserva> ListaReservas = new ArrayList<Reserva>();
 		ListaReservas.add(reserva1);
 		ListaReservas.add(reserva2);
+		ListaReservas.add(reserva3);
 		biblioteca.setReserva(ListaReservas);
 
 
@@ -112,8 +118,16 @@ public class Main2 {
 		multa1.setValor(10);
 		multa1.setDataPagamento("15/12/2023");
 
+
+		Multa multa2 = new Multa();
+		multa2.setLivro(livro3);
+		multa2.setPessoa(funcionario1);
+		multa2.setValor(200);
+		multa2.setDataPagamento("15/01/2024");
+
 		List<Multa> listamultas = new ArrayList<>();
 		listamultas.add(multa1);
+		listamultas.add(multa2);
 		biblioteca.setMulta(listamultas);
 
 
@@ -161,10 +175,11 @@ public class Main2 {
 
 
 		System.out.println("------------------------ Multas ----------------------------------");
-		for (Multa multaItem : biblioteca.getMulta()) {
-			System.out.println("Pessoa: " + multaItem.getPessoa().getNome());
-			System.out.println("Livro: " + multaItem.getLivro().getTitulo());
-			System.out.println("Valor da Multa: " + multaItem.getValor());
+		for (Multa multa : biblioteca.getMulta()) {
+			System.out.println("Pessoa: " + multa.getPessoa().getNome());
+			System.out.println("Livro: " + multa.getLivro().getTitulo());
+			System.out.println("Valor da Multa: " + multa.getValor());
+			System.out.println("Data de Pagamento: " + multa.getDataPagamento());
 			System.out.println("------------------------------------------------------------------");
 		}
 

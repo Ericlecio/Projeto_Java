@@ -179,10 +179,11 @@ public class Main1 {
 
 
 		System.out.println("------------------------ Multas ----------------------------------");
-		for (Multa multaItem :biblioteca.getMulta()) {
-			System.out.println("Pessoa: " + multaItem.getPessoa().getNome());
-			System.out.println("Livro: " + multaItem.getLivro().getTitulo());
-			System.out.println("Valor da Multa: " + multaItem.getValor());
+		for (Multa multa :biblioteca.getMulta()) {
+			System.out.println("Pessoa: " + multa.getPessoa().getNome());
+			System.out.println("Livro: " + multa.getLivro().getTitulo());
+			System.out.println("Valor da Multa: " + multa.getValor());
+			System.out.println("Data de Pagamento: " + multa.getDataPagamento());
 			System.out.println("------------------------------------------------------------------");
 		}
 
