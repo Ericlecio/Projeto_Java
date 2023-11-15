@@ -17,8 +17,6 @@ public class Main1 {
 		List<Estante> listaEstantes = new ArrayList<Estante>();
 		listaEstantes.add(estante1);
 		listaEstantes.add(estante2);
-
-		// Setando a lista de estantes para a biblioteca
 		biblioteca.setEstante(listaEstantes);
 
 
@@ -52,6 +50,7 @@ public class Main1 {
 		listalivros.add(livro4);
 		listalivros.add(livro5);
 		listalivros.add(livro6);
+		biblioteca.setLivro(listalivros);
 
 
 		//Criação das Pessoas, Professor/Aluno
@@ -79,6 +78,7 @@ public class Main1 {
 		ListaPessoa.add(funcionario1);
 		ListaPessoa.add(funcionario2);
 		ListaPessoa.add(funcionario3);
+		biblioteca.setPessoa(ListaPessoa);
 
 
 		// Criando ItemEmprestimo1 e adicionando o  livro com a data de devolução prevista
@@ -117,12 +117,12 @@ public class Main1 {
 		emprestimo4.adicionarItem(itemEmprestimo4);
 		emprestimo4.setDataEmprestimo("07/12/2023");
 
-
 		List<Emprestimo> ListaEmprestimos = new ArrayList<Emprestimo>();
 		ListaEmprestimos.add(emprestimo1);
 		ListaEmprestimos.add(emprestimo2);
 		ListaEmprestimos.add(emprestimo3);
 		ListaEmprestimos.add(emprestimo4);
+		biblioteca.setEmprestimo(ListaEmprestimos);
 
 		Multa multa1 = new Multa();
 		multa1.setLivro(livro1);
@@ -130,9 +130,9 @@ public class Main1 {
 		multa1.setValor(10);
 		multa1.setDataPagamento("12/12/2023");
 
-		List<Multa> multas = new ArrayList<>();
-		multas.add(multa1);
-
+		List<Multa> listasmultas = new ArrayList<>();
+		listasmultas.add(multa1);
+		biblioteca.setMulta(listasmultas);
 
 		System.out.println("\n---------------- Todos os livros da Biblioteca -------------------");
 		for (Livro livro : listalivros) {
@@ -154,7 +154,7 @@ public class Main1 {
 
 		System.out.println("--------------------------- Estantes -----------------------------");
 		int somador = 1;
-		for (Estante estantes : listaEstantes) {
+		for (Estante estantes : biblioteca.getEstante()) {
 			System.out.println();
 			System.out.println("Estante " + somador);
 			for (Livro livro : estantes.getLivros()) {
@@ -166,7 +166,7 @@ public class Main1 {
 
 
 		System.out.println("----------------------- Empréstimos -----------------------------");
-		for (Emprestimo emprestimo : ListaEmprestimos) {
+		for (Emprestimo emprestimo : biblioteca.getEmprestimo()) {
 			System.out.println(emprestimo.getPessoa().getTipo());
 			System.out.println(emprestimo.getPessoa().getNome());
 			System.out.println("Data de emprestimo: " + emprestimo.getDataEmprestimo());
@@ -179,7 +179,7 @@ public class Main1 {
 
 
 		System.out.println("------------------------ Multas ----------------------------------");
-		for (Multa multaItem : multas) {
+		for (Multa multaItem :biblioteca.getMulta()) {
 			System.out.println("Pessoa: " + multaItem.getPessoa().getNome());
 			System.out.println("Livro: " + multaItem.getLivro().getTitulo());
 			System.out.println("Valor da Multa: " + multaItem.getValor());
@@ -188,7 +188,7 @@ public class Main1 {
 
 
 		System.out.println("------------------- Pessoas Cadastradas ---------------------------");
-		for (Pessoa pessoa : ListaPessoa) {
+		for (Pessoa pessoa : biblioteca.getPessoa()) {
 			System.out.println("Pessoa: " + pessoa.getNome());
 			System.out.println("Idade: " + pessoa.getIdade());
 			System.out.println("Endereço: " + pessoa.getEndereco());

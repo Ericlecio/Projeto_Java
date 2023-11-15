@@ -51,6 +51,7 @@ public class Main2 {
 		listalivros.add(livro4);
 		listalivros.add(livro5);
 		listalivros.add(livro6);
+		biblioteca.setLivro(listalivros);
 
 
 		//Criação das Pessoas, Professor/Aluno
@@ -77,6 +78,7 @@ public class Main2 {
 		ListaPessoa.add(funcionario1);
 		ListaPessoa.add(funcionario2);
 		ListaPessoa.add(funcionario3);
+		biblioteca.setPessoa(ListaPessoa);
 
 
 		// Criando ItemReservas 1 e adicionando livro 
@@ -101,6 +103,7 @@ public class Main2 {
 		List<Reserva> ListaReservas = new ArrayList<Reserva>();
 		ListaReservas.add(reserva1);
 		ListaReservas.add(reserva2);
+		biblioteca.setReserva(ListaReservas);
 
 
 		Multa multa1 = new Multa();
@@ -109,13 +112,13 @@ public class Main2 {
 		multa1.setValor(10);
 		multa1.setDataPagamento("15/12/2023");
 
-		List<Multa> multas = new ArrayList<>();
-		multas.add(multa1);
-
+		List<Multa> listamultas = new ArrayList<>();
+		listamultas.add(multa1);
+		biblioteca.setMulta(listamultas);
 
 
 		System.out.println("\n---------------- Todos os livros da Biblioteca -------------------");
-		for (Livro livro : listalivros) {
+		for (Livro livro : biblioteca.getLivro()) {
 			System.out.println(livro.getTitulo() + ", Autor: " + livro.getAutor() + ", Ano de publicação: " + livro.getAnoPublicacao());
 		}
 
@@ -134,7 +137,7 @@ public class Main2 {
 
 		System.out.println("--------------------------- Estantes -----------------------------");
 		int somador = 1;
-		for (Estante estantes : listaEstantes) {
+		for (Estante estantes : biblioteca.getEstante()) {
 			System.out.println();
 			System.out.println("Estante " + somador);
 			for (Livro livro : estantes.getLivros()) {
@@ -146,7 +149,7 @@ public class Main2 {
 
 
 		System.out.println("----------------------- Reservas -----------------------------");
-		for (Reserva reserva : ListaReservas) {
+		for (Reserva reserva : biblioteca.getReserva()) {
 			System.out.println(reserva.getPessoa().getClass().getSimpleName());
 			System.out.println(reserva.getPessoa().getNome());
 			System.out.println("Data da Reserva: " + reserva.getDataReserva());
@@ -158,7 +161,7 @@ public class Main2 {
 
 
 		System.out.println("------------------------ Multas ----------------------------------");
-		for (Multa multaItem : multas) {
+		for (Multa multaItem : biblioteca.getMulta()) {
 			System.out.println("Pessoa: " + multaItem.getPessoa().getNome());
 			System.out.println("Livro: " + multaItem.getLivro().getTitulo());
 			System.out.println("Valor da Multa: " + multaItem.getValor());
@@ -167,7 +170,7 @@ public class Main2 {
 
 
 		System.out.println("------------------- Pessoas Cadastradas ---------------------------");
-		for (Pessoa pessoa: ListaPessoa) {
+		for (Pessoa pessoa: biblioteca.getPessoa()) {
 			System.out.println("Pessoa: " + pessoa.getNome());
 			System.out.println("Idade: " + pessoa.getIdade());
 			System.out.println("Endereço: " + pessoa.getEndereco());
