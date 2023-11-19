@@ -17,8 +17,9 @@ public class Main1 {
 		List<Estante> listaEstantes = new ArrayList<Estante>();
 		listaEstantes.add(estante1);
 		listaEstantes.add(estante2);
-		biblioteca.setEstante(listaEstantes);
 
+		//setando a lista de estantes para a biblioteca.
+		biblioteca.setEstante(listaEstantes);
 
 		// Criação do livros
 		Livro livro1 = new Livro("Livro 1", "Autor 1", 2000);
@@ -71,7 +72,7 @@ public class Main1 {
 		biblioteca.setFuncionario(listaFuncionario);
 
 
-		//Criando uma lista de Pessoas e setando os alunos e professores
+		//Criando uma lista de Pessoas e setando os alunos, professores e funcionarios
 		List<Pessoa> ListaPessoa = new ArrayList<Pessoa>();
 		ListaPessoa.add(aluno);
 		ListaPessoa.add(professor);
@@ -83,8 +84,10 @@ public class Main1 {
 
 		// Criando ItemEmprestimo1 e adicionando o  livro com a data de devolução prevista
 		ItemEmprestimo itemEmprestimo1 = new ItemEmprestimo(livro1, "25/11/2023");
+
 		// Criando Emprestimo 1 e adicionando itemEmprestimo1
 		Emprestimo emprestimo1 = new Emprestimo();
+
 		emprestimo1.setPessoa(professor);
 		emprestimo1.adicionarItem(itemEmprestimo1);
 		emprestimo1.setDataEmprestimo("20/11/2023");
@@ -130,8 +133,16 @@ public class Main1 {
 		multa1.setValor(10);
 		multa1.setDataPagamento("12/12/2023");
 
+
+		Multa multa2 = new Multa();
+		multa2.setLivro(livro2);
+		multa2.setPessoa(aluno);
+		multa2.setValor(100);
+		multa2.setDataPagamento("12/12/2023");
+
 		List<Multa> listasmultas = new ArrayList<>();
 		listasmultas.add(multa1);
+		listasmultas.add(multa2);
 		biblioteca.setMulta(listasmultas);
 
 		System.out.println("\n---------------- Todos os livros da Biblioteca -------------------");
@@ -147,7 +158,7 @@ public class Main1 {
 			System.out.println("Endereço: " + funcionarios.getEndereco());
 			System.out.println("Numero Funcionario" + funcionarios.getNumeroFuncionario());
 			System.out.println("Salario: " + funcionarios.getSalario());
-			funcionarios.getTipo();
+			System.out.println("Tipo: " + funcionarios.getTipo());
 			System.out.println("---------------------------------------------------------------");
 		}
 

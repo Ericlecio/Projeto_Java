@@ -144,7 +144,7 @@ public class Main2 {
 			System.out.println("Endereço: " + funcionarios.getEndereco());
 			System.out.println("Numero Funcionario" + funcionarios.getNumeroFuncionario());
 			System.out.println("Salario: " + funcionarios.getSalario());
-			funcionarios.getTipo();
+			System.out.println("Tipo: " + funcionarios.getTipo());
 			System.out.println("---------------------------------------------------------------");
 		}
 
